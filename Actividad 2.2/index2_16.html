@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Practica 2.16</title>
+  </head>
+  <body>
+    <script>
+      /* Solucion con array
+      let contador = 0;
+      let numeroNotas = prompt("Introduce el numero de notas a introducir :");
+      const notasSuspensas = [];
+      for (let i = 1; i <= numeroNotas; i++) {
+        let nota = prompt("Introduce la nota");
+        if (nota < 5) {
+          notasSuspensas.push(nota);
+        }
+        contador++;
+      }
+      let porcentajeSuspenso = notasSuspensas.length / contador;
+      document.write(
+        `El porcentaje de notas suspensas es de ${porcentajeSuspenso * 100}%`
+      );
+      */
+      let contador = 0;
+      let contadorSuspensos = 0;
+      let numeroNotas = prompt("Introduce el numero de notas a introducir :");
+      for (let i = 1; i <= numeroNotas; i++) {
+        let nota = prompt("Introduce la nota");
+        if (nota < 5) {
+          contadorSuspensos++;
+        }
+        contador++;
+      }
+      let porcentajeSuspenso = contadorSuspensos / contador;
+      document.write(
+        `El porcentaje de notas suspensas es de ${porcentajeSuspenso * 100}%`
+      );
+    </script>
+  </body>
+</html>

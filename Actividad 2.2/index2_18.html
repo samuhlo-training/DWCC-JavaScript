@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Practica 2.18</title>
+  </head>
+  <body>
+    <script>
+      let diametro = Number(
+        prompt("Introduce el diametro de la rueda (metros) :")
+      );
+      let grosor = Number(prompt("Introduce el grosor de la rueda (metros) :"));
+      if (diametro > 1.4) {
+        document.write("<p>La rueda es para un vehiculo grande</p>");
+      } else if (diametro <= 1.4 && diametro > 0.8) {
+        document.write("<p>La rueda es para un vehiculo mediano</p>");
+      } else {
+        document.write("<p>La rueda es para un vehiculo pequenho</p>");
+      }
+
+      if (
+        (diametro > 1.4 && grosor < 0.4) ||
+        (diametro < 1.4 && diametro > 0.8 && grosor < 0.25)
+      ) {
+        document.write(
+          "<p>El grosor de esta rueda es inferior al recomendado</p>"
+        );
+      }
+    </script>
+  </body>
+</html>

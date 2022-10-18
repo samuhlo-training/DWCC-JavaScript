@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="”es”">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="”UTF-8”" />
+    <title>Practica 2.6</title>
+    <style>
+      * {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let n;
+      do {
+        n = prompt(
+          "Escribe el numero de asteriscos que deseas (debe ser un numero entero positivo)"
+        );
+      } while (isNaN(Number(n)) || n <= 0);
+      document.write("Triangulo 1:");
+      document.write("<br>");
+      document.write("<br>");
+      for (let i = n; i >= 1; i--) {
+        for (let j = i; j >= 1; j--) {
+          document.write("* ");
+        }
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("Triangulo 2:");
+      document.write("<br>");
+      document.write("<br>");
+      let cont = 0;
+      for (let i = 1; i <= n; i++) {
+        for (let k = n - 1; k > cont; k--) {
+          document.write("&nbsp");
+        }
+        for (let j = 1; j <= i; j++) {
+          document.write("* ");
+        }
+
+        document.write("<br>");
+        cont++;
+      }
+      document.write("<br>");
+      document.write("Triangulo 3:");
+      document.write("<br>");
+      document.write("<br>");
+      let cont2 = 0;
+      for (let i = n; i >= 1; i--) {
+        for (let k = 0; k < cont2; k++) {
+          document.write("&nbsp");
+        }
+        for (let j = i; j >= 1; j--) {
+          document.write("* ");
+        }
+
+        document.write("<br>");
+        cont2++;
+      }
+    </script>
+  </body>
+</html>

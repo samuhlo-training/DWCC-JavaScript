@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pratica 2.15</title>
+  </head>
+  <body>
+    <script>
+      const numbers = [];
+      const salida = 0;
+      let n = 0;
+
+      const primo = (num) => {
+        if (num == 0 || num == 1 || num == 4) return false;
+        for (let x = 2; x < num / 2; x++) {
+          if (num % x == 0) return false;
+        }
+        return true;
+      };
+
+      do {
+        n = Number(
+          prompt("Escribe un numero ( para de escribir al introducir 0 ) ")
+        );
+        if (primo(n)) {
+          numbers.push(n);
+        }
+      } while (n !== 0);
+      const dataNumbers = new Set(numbers);
+      let result = [...dataNumbers];
+      document.write(`Los numeros primos introducidos son ${result}`);
+    </script>
+  </body>
+</html>

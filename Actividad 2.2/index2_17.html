@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Practica 2.17</title>
+  </head>
+  <body>
+    <script>
+      let salida = false;
+      let contadorPositivos = 0;
+      let contadorNegativos = 0;
+      do {
+        let num = Number(prompt("Introduce un numero :"));
+        if (num > 0) {
+          contadorPositivos++;
+        } else {
+          contadorNegativos++;
+        }
+        /*
+        let continuar = prompt("¿Terminar Si/No?");
+        if (continuar.toLocaleUpperCase() === "SI") {
+          salida = true;
+        } else {
+          salida = false;
+        }
+        */
+        let opcion = confirm("¿Terminar Si(Aceptar) / No(Cancelar) ?");
+        if (opcion == true) {
+          salida = true;
+        } else {
+          salida = false;
+        }
+      } while (!salida);
+      document.write(
+        `El numero de positivos es ${contadorPositivos} y el numero de negativos es ${contadorNegativos}`
+      );
+    </script>
+  </body>
+</html>

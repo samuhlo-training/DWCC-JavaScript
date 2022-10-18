@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 2.3.3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      let hora = 9;
+      let min = 0;
+      for (let i = 1; i <= 12; i++) {
+        for (let k = 1; k <= 12; k++) {
+          if (k === 1) {
+            document.write(`${hora}:00<br>`);
+          } else if (k === 2) {
+            document.write(`${hora}:0${min}<br>`);
+          } else {
+            document.write(`${hora}:${min}<br>`);
+          }
+          min += 5;
+        }
+        hora++;
+        min = 0;
+      }
+      document.write(`21:00`);
+    </script>
+  </body>
+</html>

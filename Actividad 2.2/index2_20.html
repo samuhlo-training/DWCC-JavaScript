@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Practica 2.20</title>
+  </head>
+  <body>
+    <script>
+      let verificar = false;
+      let numero = 0;
+      do {
+        numero = Number(
+          prompt("Introduce un valor entre 1 y 10 ( -1 para salir )")
+        );
+        if (numero === 10) {
+          verificar = true;
+        }
+      } while (numero !== -1);
+      verificar ? document.write("SI") : document.write("NO");
+    </script>
+  </body>
+</html>
