@@ -7,147 +7,65 @@
     <title>Practica Arrays</title>
   </head>
   <body>
-    <script>
-      var dias_semana = [
-        "lunes",
-        "martes",
-        "miércoles",
-        "jueves",
-        "viernes",
-        "sábado",
-        "domingo",
-      ];
-      var preciosHab = [102, 240, 514, 167, 203, 974, 745, 232, 435];
-      var preciosAdd = [543, 634, 234, 734, 127];
-      var frutas = [
-        "limón",
-        "pera",
-        "manzana",
-        "naranja",
-        "pomelo",
-        "sandia",
-        "aguacate",
-        "nuez",
-        "melón",
-        "avellana",
-      ];
+    <section class="ejercicios">
+      <button onclick="eligeEjercicio()">ELIGE EJERCICIO</button>
+      <p>
+        1) Eliminar el primer y ultimo elemento del array preciosHab.
+        Implementar una funcion para eliminar el elemento i-ésimo y devolver el
+        resultado.
+      </p>
+      <p>
+        2) Multiplicar el array preciosHab * 3 y *2 de manera inversa. El
+        resultado se cargará en dos array: preciosHabDir y preciosHabInv.
+      </p>
+      <p>
+        3) Crear un string a partir del array dias_semana insertando un guion
+        entre cada uno de los elementos del array dias. Visualiza el resultado.
+        Partiendo del string resultado, quitar el “-” de manera que el array
+        vuelva a quedar como el original dias_semana.
+      </p>
+      <p>
+        4) Comprobar si hay algún elemento del array dias_semana que sea mayor
+        que 500 y si todos son mayores que 50.
+      </p>
+      <p>5) Reducir el tamaño del array preciosHab a 8 elementos</p>
+      <p>
+        6) Ordenar por orden alfabético el array fruta. Desarrollar una funcion
+        de ordenacion que ordene de manera ascendente por el segundo carácter,
+        Ej:[manzana,pera,limon...]
+      </p>
+      <p>
+        7) Buscar los elementos en el array dias_semana que empiezan por “m”.
+        Escribir el día de la semana y el numero (lunes=1º día,….).
+      </p>
+      <p>
+        8) Concatenar los arrays preciosHab y preciosAdd y devolver sendos
+        arrays ordenados de manera ascendente y descendente (preciosAsc y
+        precios Desc)
+      </p>
+      <p>
+        9) Calcular la media y el precio total de todas las habitaciones,
+        incluidas la habitaciones añadidas.
+      </p>
+      <p>10) Ordena de forma inversa el array preciosHab.</p>
+      <p>11) Construir un array de los elementos impares del array dias.</p>
+      <p>
+        12) Convertir el array dias en otro donde solo aparecen los dias del fin
+        de semana
+      </p>
+      <p>
+        13) Modificar el array preciosAdd, para que quede de la forma
+        [543,634,234,734,543,634,234,734];
+      </p>
+      <p>
+        14) Unir el array frutas con el array preciosHab y construir un nuevo
+        array fruta_precio. A partir de este array, formar dos arrays resultado,
+        uno con los valores numericos *2 y otro con las frutas con un * al final
+        del nombre.
+      </p>
+      <p>15) Construir una array de 12 elementos con la serie de Fibonacci.</p>
+    </section>
 
-      const ejercicio1 = function () {
-        preciosHab.shift();
-        preciosHab.pop();
-        const deleteArr = function () {
-          let posicion = Number(
-            prompt("Escribe el numero del array que quieres borrar")
-          );
-          preciosHab.splice(posicion, 1);
-          document.write(preciosHab);
-        };
-      };
-
-      const ejercicio2 = function () {
-        const preciosHabDir = preciosHab.map((x) => x * 3);
-        document.write(preciosHabDir);
-      };
-
-      const ejercicio3 = function () {
-        document.write(dias_semana);
-        document.write("<br>");
-        dias_semana.join("-");
-        document.write(dias_semana);
-        document.write("<br>");
-        dias_semana.split("-");
-        document.write(dias_semana);
-      };
-
-      const ejercicio4 = function () {
-        let mayor500 = [];
-        let mayor50 = true;
-        function mayor(num) {
-          if (num > 500) {
-            mayor500.push(num);
-          }
-        }
-        function cincuenta(num) {
-          if (num < 50) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-        preciosHab.forEach(mayor);
-        document.write(`Son mayores que 500 : ${mayor500}`);
-      };
-
-      const ejercicio5 = function () {
-        preciosHab.slice(0, 7);
-      };
-      const ejercicio6 = function () {
-        fruta.sort((a, b) => a.localCompare(b));
-        const ordenarSegundoAscendente = function () {};
-      };
-      const ejercicio7 = function () {
-        const startsM = dias_semana.filter((dias) => dias.startsWith("m"));
-        for (let x = 0; x < dias_semana.length; x++) {
-          document.write(`${dias_semana[x]} = ${x + 1}º dia<br>`);
-        }
-      };
-      const ejerccio8 = function () {
-        const preciosAsc = preciosHab.concat(preciosAdd).sort();
-        document.write(preciosAsc);
-        document.write("<br>");
-        const preciosDes = preciosHab.concat(preciosAdd).reverse();
-      };
-
-      const ejercicio9 = function () {
-        let total = 0;
-        preciosHab.forEach(function (a) {
-          total += a;
-        });
-        let media = total / preciosHab.length;
-        document.write(`${total} es la suma de todo y la medias es ${media}`);
-      };
-
-      const ejercicio10 = function () {
-        document.write(preciosHab.reverse());
-      };
-
-      const ejercicio11 = function () {
-        const numerosImpares = [];
-        for (let i = 0; i < preciosHab.length; i++) {
-          if (preciosHab[i] % 2 != 0) {
-            numerosImpares.push(preciosHab[i]);
-          }
-        }
-        document.write(numerosImpares);
-      };
-
-      const ejercicio12 = function () {
-        const diasFinSemana = dias_semana.slice(4);
-        document.write(diasFinSemana);
-      };
-
-      const ejercicio13 = function () {
-        preciosAdd.pop();
-        preciosAdd.push(543, 634, 234, 734);
-      };
-
-      const ejercicio14 = function () {
-        const fruta_precio = frutas.concat(preciosHab);
-      };
-
-      const ejercicio15 = function () {
-        const fib = function (n) {
-          const sol = [0, 1];
-
-          for (let i = 2; i <= n; i++) {
-            sol[i] = sol[i - 1] + sol[i - 2];
-          }
-
-          return sol[n];
-        };
-
-        document.write(fib(12));
-      };
-    </script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
