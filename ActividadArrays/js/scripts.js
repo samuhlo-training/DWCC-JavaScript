@@ -147,6 +147,8 @@ const ejercicio6 = function () {
 };
 const ejercicio7 = function () {
   const startsM = dias_semana.filter((dias) => dias.startsWith("m"));
+  document.write(startsM);
+  document.write("<br>");
   for (let x = 0; x < dias_semana.length; x++) {
     document.write(`${dias_semana[x]} = ${x + 1}º dia<br>`);
   }
