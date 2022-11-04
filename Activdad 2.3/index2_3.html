@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 2.3</title>
+  </head>
+  <body>
+    <script>
+      let a = prompt(`Escribe el primer numero entero`);
+      let b = prompt(`Escribe el segundo numero entero`);
+      let c = prompt(`Escribe el primer numero entero`);
+
+      const tablas = function (a, b, c) {
+        document.write(`Tabla de multiplicar de ${a}<br>`);
+        for (let i = 1; i <= 10; i++) {
+          document.write(`${a} x ${i} = ${a * i}<br>`);
+        }
+        document.write(`Tabla de sumar de ${b}<br>`);
+        for (let i = 0; i <= 9; i++) {
+          document.write(`${b} + ${i} = ${b + i}<br>`);
+        }
+        document.write(`Tabla de restar de ${c}<br>`);
+        for (let i = 0; i <= 9; i++) {
+          document.write(`${c} - ${i} = ${c - i}<br>`);
+        }
+      };
+      tablas(a, b, c);
+    </script>
+  </body>
+</html>

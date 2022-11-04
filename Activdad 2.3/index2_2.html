@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica 2.2</title>
+  </head>
+  <body>
+    <script>
+      const dividirBits = function (numero, contador) {
+        let total = numero / 2;
+        for (let i = 1; i < contador; i++) {
+          total = total / 2;
+        }
+        return total;
+      };
+
+      const multiplicarBits = function (numero, contador) {
+        let total = numero * 2;
+        for (let i = 1; i < contador; i++) {
+          total = total * 2;
+        }
+        return total;
+      };
+
+      document.write(dividirBits(225, 8));
+      document.write(`<br>`);
+      document.write(multiplicarBits(60, 4));
+      document.write(`<br>`);
+      document.write(dividirBits(25, 2));
+      document.write(`<br>`);
+      document.write(10, 16);
+    </script>
+  </body>
+</html>
