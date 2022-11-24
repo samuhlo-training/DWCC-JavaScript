@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3.12.2</title>
+  </head>
+  <body>
+    <h2>Elige tu premio para generar el numero aleatorio</h2>
+    <br /><br />
+    <button id="euromillon" onclick="generadorPremios(5,49)">EuroMillon</button>
+    <button id="primtiva" onclick="generadorPremios(6, 49)">Primitiva</button>
+    <button id="bonoloto" onclick="generadorPremios(6, 49)">Bonoloto</button>
+    <button id="gordo" onclick="generadorPremios(5, 49)">Gordo</button>
+
+    <script>
+      function generadorPremios(num, max) {
+        const numeroPremio = [];
+        for (let i = 1; i <= num; i++) {
+          let num = Math.floor(Math.random() * max);
+          numeroPremio.push(num);
+        }
+        alert(`${numeroPremio.join(" ")}`);
+        return `${numeroPremio.join(" ")}`;
+      }
+    </script>
+  </body>
+</html>
