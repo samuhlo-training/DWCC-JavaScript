@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3.14.1</title>
+  </head>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <body style="text-align: center">
+    <h2>Quieres saber cuantos dias quedan hasta final de curso??</h2>
+    <br /><br />
+    <button onclick="mostrar()">MOSTRAR</button>
+    <br /><br />
+    <div id="resultado" class="hidden"></div>
+    <script>
+      const limpiar = () => (resultado.innerHTML = " ");
+      const resultado = document.getElementById("resultado");
+      let fechaActual = new Date();
+      console.log(fechaActual);
+      const fechaFinalCurso = new Date("05/25/2023");
+      console.log(fechaFinalCurso);
+      let diferencia = fechaFinalCurso.getTime() - fechaActual.getTime();
+      console.log(diferencia);
+      let dias = Math.ceil(diferencia / (1000 * 3600 * 24));
+      resultado.innerHTML = `<strong>${dias}</strong>`;
+      let hidden = true;
+      function mostrar() {
+        if (hidden) {
+          resultado.classList.remove("hidden");
+          hidden = false;
+        } else {
+          resultado.classList.add("hidden");
+          hidden = true;
+        }
+      }
+    </script>
+  </body>
+</html>
