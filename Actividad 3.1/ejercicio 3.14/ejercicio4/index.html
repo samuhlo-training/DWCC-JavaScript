@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3.14.4</title>
+  </head>
+  <body style="text-align: center">
+    <h2>Fecha Actual</h2>
+    <br /><br />
+    <div id="fechaa"></div>
+    <script>
+      const resultado = document.getElementById("fechaa");
+      let fecha = new Date();
+      let milisegundos = fecha.getTime();
+      let segundos = 20000;
+      const fechaFinal = new Date(milisegundos + segundos);
+      let mostrar = false;
+      do {
+        if (fecha === fechaFinal) {
+          resultado.innerHTML = fechaFinal;
+          mostrar = true;
+        }
+      } while (mostrar);
+    </script>
+  </body>
+</html>
+<!-- var currentDateObj = new Date();
+var numberOfMlSeconds = currentDateObj.getTime();
+var addMlSeconds = 20 * 60000;
+var newDateObj = new Date(numberOfMlSeconds + addMlSeconds); -->
