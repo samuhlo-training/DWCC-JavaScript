@@ -12,17 +12,11 @@
     <div id="fechaa"></div>
     <script>
       const resultado = document.getElementById("fechaa");
-      let fecha = new Date();
-      let milisegundos = fecha.getTime();
-      let segundos = 20000;
-      const fechaFinal = new Date(milisegundos + segundos);
-      let mostrar = false;
-      do {
-        if (fecha === fechaFinal) {
-          resultado.innerHTML = fechaFinal;
-          mostrar = true;
-        }
-      } while (mostrar);
+      function mostrarFecha() {
+        let fecha = new Date();
+        resultado.innerHTML = fecha;
+      }
+      setTimeout(mostrarFecha, 20000);
     </script>
   </body>
 </html>
