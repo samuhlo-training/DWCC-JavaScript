@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+  </head>
+  <body>
+    <script>
+      const numeros = [];
+      let num;
+      do {
+        num = Number(prompt(`Introduce un numero ( -1 para terminar)`));
+        if (num != -1) numeros.push(num);
+      } while (num != -1);
+      console.log(numeros);
+
+      const calcularMedia = function (array) {
+        let total = 0;
+        for (let num of numeros) total += num;
+        return total / array.length;
+      };
+      console.log(calcularMedia(numeros));
+
+      document.write(
+        `Los numeros introducidos son : <strong>${numeros}</strong> y la media de ellos es <strong>${calcularMedia(
+          numeros
+        )}</strong>`
+      );
+    </script>
+  </body>
+</html>

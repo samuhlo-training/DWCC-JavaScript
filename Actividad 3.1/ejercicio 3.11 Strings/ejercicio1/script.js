@@ -1,17 +1,5 @@
 "use stric";
 
-// const boton1 = document.getElementById("I");
-// const boton2 = document.getElementById("II");
-// const boton3 = document.getElementById("III");
-// const boton4 = document.getElementById("IV");
-// const boton5 = document.getElementById("V");
-// const boton6 = document.getElementById("VI");
-// const boton7 = document.getElementById("VII");
-// const boton8 = document.getElementById("VIII");
-// const boton9 = document.getElementById("IX");
-// const boton10 = document.getElementById("X");
-// const boton11 = document.getElementById("XI");
-
 const resultado = document.getElementById("resultado");
 
 const limpiar = () => (resultado.innerHTML = " ");

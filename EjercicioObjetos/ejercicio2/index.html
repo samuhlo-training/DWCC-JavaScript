@@ -4,33 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejercicio 3 Objetos</title>
+    <title>Ejercicio 2 Objetos</title>
   </head>
   <style>
-    td {
-    border-bottom: 1px solid #ddd;
-    };
-    .total{
-        color: red;
+    button {
+      padding: 2px;
+      margin-right: 4px;
     }
   </style>
   <body>
-    <label for="nombre">Nombre :</label>
-    <input type="text" id="nombre" name="nombre" />
-    <br><br>
-    <label for="cantidad">Cantidad :</label>
-    <input type="number" id="cantidad" name="cantidad" />
-    <br><br>
-    <label for="precio">Precio :</label>
-    <input type="number" name="precio" id="precio" />
-    <br><br>
-    <button onclick="addProducto()">Añadir producto</button>
-    <br><br>
-    <button onclick="mostrarCompra()">Mostrar compra</button>
-    <br><br>
+    <h2>EQUIPO DE FUTBOL</h2>
+    <h3>Ficha del jugador :</h3>
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" id="nombreJugador" />
+    <br /><br />
+    <label for="dorsal">Dorsal :</label>
+    <input type="text" name="dorsal" id="dorsalJugador" />
+    <br /><br />
+    <label for="peso">Peso :</label>
+    <input type="text" name="peso" id="pesoJugador" />
+    <br /><br />
+    <label for="altura">Altura :</label>
+    <input type="text" name="altura" id="alturaJugador" />
+    <br /><br />
+    <button onclick="crearJugador()">AÑADIR</button>
+    <button onclick="mostrarEquipo()">MOSTRAR EQUIPO</button>
+    <br /><br />
+    <div id="respuesta"></div>
     <script src="script.js"></script>
-    <div id="respuesta">
-      <table id="listaCompra">
-    </div>
   </body>
 </html>

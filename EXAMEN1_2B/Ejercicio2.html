@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <script>
+      const diasSemana = [
+        "Lunes",
+        "Martes",
+        "Miercoles",
+        "Jueves",
+        "Viernes",
+        "Sabado",
+        "Domingo",
+      ];
+      const mesesAño = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ];
+      const resultadoSemana = [];
+      const resultadoAño = [];
+
+      for (let i = 0; i < diasSemana.length; i++) {
+        if ((i + 1) % 2 == 0) {
+          let temp = diasSemana[i];
+          resultadoSemana.push(temp.toUpperCase());
+        } else {
+          resultadoSemana.push(diasSemana[i]);
+        }
+      }
+      console.log(resultadoSemana);
+      document.write(`${resultadoSemana}<br><br>`);
+
+      for (let i = 0; i < mesesAño.length; i++) {
+        if ((i + 1) % 2 == 0) {
+          let temp = mesesAño[i];
+          resultadoAño.push(temp.toUpperCase());
+        } else {
+          resultadoAño.push(mesesAño[i]);
+        }
+      }
+      console.log(resultadoAño);
+      document.write(`${resultadoAño}<br><br>`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <script>
+      let num = parseInt(prompt("Introduce un numero de 1 al 100"));
+
+      function descomponerEnPrimos(N) {
+        let arrayTemporal = [];
+        let resultado = N;
+        while (resultado > 1) {
+          for (let i = 2; i <= N; i++) {
+            if (resultado % i === 0) {
+              resultado = resultado / i;
+              arrayTemporal.push(i);
+              break;
+            }
+          }
+        }
+        let arrayFactores = [];
+        let factor = arrayTemporal[0];
+        let cont = 1;
+        if (arrayTemporal.length > 1) {
+          for (let i = 1; i < arrayTemporal.length; i++) {
+            if (factor !== arrayTemporal[i]) {
+              arrayFactores.push({ factor: factor, seRepite: cont });
+              factor = arrayTemporal[i];
+              cont = 0;
+            }
+            cont++;
+          }
+          arrayFactores.push({ factor: factor, seRepite: cont });
+        } else {
+          arrayFactores.push({ factor: factor, seRepite: cont });
+        }
+        return arrayFactores;
+      }
+
+      let factores = descomponerEnPrimos(num);
+
+      for (let i = 0; i < factores.length; i++) {
+        document.write(
+          `El factor <strong>${factores[i].factor}</strong> se repite <strong>${factores[i].seRepite}</strong><br><br>`
+        );
+      }
+    </script>
+  </body>
+</html>

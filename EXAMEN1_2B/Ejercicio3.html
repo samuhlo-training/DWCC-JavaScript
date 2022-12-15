@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <script>
+      const lanzarDado = () => Math.floor(Math.random() * 6) + 1;
+
+      function jugar() {
+        const tiradasJ1 = [];
+        const tiradasJ2 = [];
+        let totalJ1 = 0;
+        let totalJ2 = 0;
+        for (let i = 1; i <= 3; i++) {
+          let dado1 = lanzarDado();
+          let dado2 = lanzarDado();
+          totalJ1 += dado1 + dado2;
+          tiradasJ1.push([dado1, dado2]);
+        }
+        for (let x = 1; x <= 3; x++) {
+          let dado1 = lanzarDado();
+          let dado2 = lanzarDado();
+          totalJ2 += dado1 + dado2;
+          tiradasJ2.push([dado1, dado2]);
+        }
+        console.log(tiradasJ1);
+        console.log(totalJ1);
+        console.log(tiradasJ2);
+        console.log(totalJ2);
+
+        document.write(`<strong>JUGADOR 1</strong><br><br>`);
+        for (let i = 0; i < tiradasJ1.length; i++)
+          document.write(`La tirada ${i + 1} es ${tiradasJ1[i]}<br><br>`);
+        document.write(`<strong>TOTAL : </strong> ${totalJ1}<br><br>`);
+
+        document.write(`<strong>JUGADOR 2</strong><br><br>`);
+        for (let i = 0; i < tiradasJ2.length; i++)
+          document.write(`La tirada ${i + 1} es ${tiradasJ2[i]}<br><br>`);
+
+        document.write(`<strong>TOTAL : </strong> ${totalJ2}<br><br>`);
+
+        totalJ1 > totalJ2
+          ? document.write(`El ganador es el <strong>JUGADOR 1</strong>`)
+          : document.write(`El ganador es el <strong>JUGADOR 2</strong>`);
+      }
+
+      jugar();
+    </script>
+  </body>
+</html>
