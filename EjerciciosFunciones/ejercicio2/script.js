@@ -2,6 +2,7 @@
 
 const respuesta = document.getElementById("respuesta");
 const arrayPalabras = new Array();
+const clear = () => (respuesta.innerHTML = "");
 
 function add() {
   let palabra = document.getElementById("palabras").value;
@@ -10,14 +11,19 @@ function add() {
   }
   console.log(arrayPalabras);
 }
+function code(array) {
+  return array.map((x) => x.replace(/[aeiou]/g, "*"));
+}
 
 function codificar() {
-  const cadenaTexto = arrayPalabras.toString();
-  const regex = /[aeiou]/g;
-  const newText = cadenaTexto.replace(regex, "*");
-  const arrayFinal = newText.split(",");
-  console.log(arrayFinal);
-  respuesta.innerHTML = arrayFinal;
+  clear();
+  // const cadenaTexto = arrayPalabras.toString();
+  // const regex = /[aeiou]/g;
+  // const newText = cadenaTexto.replace(regex, "*");
+  // const arrayFinal = newText.split(",");
+  // console.log(arrayFinal);
+  const arrayFinal = code(arrayPalabras);
+  arrayFinal.forEach((x) => (respuesta.innerHTML += `${x}<br>`));
 }
 
 // Minimo 8 caracteres
