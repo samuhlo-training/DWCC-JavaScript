@@ -15,9 +15,10 @@ function ordenarFechas() {
   fechas.sort((date1, date2) => date1 - date2);
   console.log(fechas);
   for (let x = 0; x < fechas.length; x++) {
-    const parrafo = document.createElement("p");
-    const text = document.createTextNode(fechas[x]);
-    parrafo.append(text);
-    respuesta.append(parrafo);
+    // const parrafo = document.createElement("p");
+    // const text = document.createTextNode(fechas[x]);
+    // parrafo.append(text);
+    // respuesta.append(parrafo);
+    respuesta.innerHTML += `${fechas[x]}<br><br>`;
   }
 }
