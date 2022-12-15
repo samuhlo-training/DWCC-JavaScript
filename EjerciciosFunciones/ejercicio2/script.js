@@ -19,3 +19,13 @@ function codificar() {
   console.log(arrayFinal);
   respuesta.innerHTML = arrayFinal;
 }
+
+// Minimo 8 caracteres
+// Maximo 15
+// Al menos una letra mayúscula
+// Al menos una letra minucula
+// Al menos un dígito
+// No espacios en blanco
+// Al menos 1 caracter especial
+
+// /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
