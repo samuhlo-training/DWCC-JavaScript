@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <form onsubmit="return validarFormulario()">
+    <div class="datos1">
+      <div class="bloque"><label for="nombre">Nombre*</label><br>
+        <input type="text" id="nombre" name="nombre" /><br /><br />
+      </div>
+
+      <div class="bloque">
+        <label for="apellidos">Apellidos*</label><br>
+        <input type="text" id="apellidos" name="apellidos" /><br /><br />
+      </div>
+
+      <div class="bloque"><label for="email">Email*</label><br>
+        <input type="text" id="email" name="email" /><br /><br />
+      </div>
+
+    </div>
+    <div class="datos2">
+      <div class="bloque"><label for="telefono">Telefono*</label><br>
+        <input type="tel" id="telefono" name="telefono" /><br /><br />
+      </div>
+
+      <div class="bloque"><label for="nombre_empresa">Nombre de empresa*</label><br>
+        <input type="text" id="nombre_empresa" name="nombre_empresa" /><br /><br />
+      </div>
+
+      <div class="bloque"><label for="cargo">Cargo*</label><br>
+        <input type="text" id="cargo" name="cargo" /><br /><br />
+      </div>
+
+    </div>
+    <div class="datos3">
+      <label for="pais">Pais*</label><br>
+      <input class="pais" type="text" id="pais" name="pais" /><br /><br />
+
+      <label for="descripcion">Descripcion:</label><br>
+      <textarea id="descripcion" name="descripcion"></textarea><br /><br />
+
+      <input type="checkbox" id="privacy" name="privacy" value="privacypolicy" />
+      <label for="privacy">Acepto la politica de Privacidad de datos.</label><br /><br />
+
+      <input class="enviar" type="submit" value="ENVIAR" />
+    </div>
+
+
+
+
+
+  </form>
+</body>
+
+</html>

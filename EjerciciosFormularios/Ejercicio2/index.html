@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <form onsubmit="validarFormulario()">
+        <div class="main_info">
+            <div class="datos_personales">
+                <h2>Datos personales</h2>
+                <input type="text" id="dni" name="dni" placeholder="DNI *" /><br /><br />
+                <div class="nombre_apellido"><input type="text" id="nombre" name="nombre" placeholder="Nombre *" />
+
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos *" /><br /><br />
+                </div>
+
+
+                <input type="tel" id="telefono" name="telefono" placeholder="Telefono *" /><br /><br />
+
+                <input type="text" id="email" name="email" placeholder="Email *" /><br /><br />
+            </div>
+
+            <div class="info">
+                <h2>Informacion adicional</h2>
+
+                <textarea id="descripcion" name="descripcion"
+                    placeholder="Necesitas hacernos alguna observacion? Escribla aqui"></textarea><br /><br />
+            </div>
+        </div>
+        <div class="pay_info">
+            <div class="solicitud">
+                <h2>Su solicitud</h2>
+                <div class="uno">
+                    <span>CONCEPTO</span>
+                    <span>TOTAL</span>
+                </div>
+                <div class="dos">
+                    <span>Lavadora</span>
+                    <span>24,50€</span>
+                </div>
+                <div class="tres">
+                    <span>Subtotal</span>
+                    <span>24,50€</span>
+                </div>
+                <div class="cuatro">
+                    <span>Total</span>
+                    <span>24,50€</span>
+                </div>
+            </div>
+            <div class="pago">
+                <h2>Pago</h2>
+                <input type="checkbox" id="pago_tarjeta" name="pago_tarjeta" value="pago_tarjeta" />
+                <label for="pago_tarjeta">Pago con tarjeta.</label><br /><br />
+                <p>Tus datos personales se utilizaran estricatamente para procesar tu solicitud respaldar tu experiencia
+                    en este sitio web teniendo en consideracion nuestra politica de privacidad.</p>
+                <input type="checkbox" id="terminos" name="terminos" value="terminos" />
+                <label for="terminos">He leido y estoy de acuerdo con los terminos y condiciones de la web <span
+                        style="color: red;">*</span></label><br /><br />
+                <input type="checkbox" id="privacidad" name="privacidad" value="privacidad" />
+                <label for="privacidad">He leido y acepto la politica de privacidad <span
+                        style="color: red;">*</span></label><br /><br />
+
+                <input class="boton_realizar" type="submit" value="REALIZAR PEDIDO" />
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
