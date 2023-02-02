@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1 - C</title>
+  </head>
+  <body>
+    <script>
+      //c) Crea una lista de objetos Persona con las propiedades (nombre, edad) correspondientes a una familia. Crea una función que devuelva el nombre del miembro de mayor edad
+
+      const familia = [
+        { nombre: "Pedro", edad: 34 },
+        { nombre: "Silvia", edad: 53 },
+        { nombre: "Pablo", edad: 23 },
+      ];
+      const ordenar = (x) => x.sort((a, b) => a.edad - b.edad);
+      const mayorEdad = ordenar(familia).pop();
+
+      console.log(mayorEdad);
+      document.write(
+        `El miembro de la familia mas viejo es : <strong>${mayorEdad.nombre}</strong>`
+      );
+    </script>
+  </body>
+</html>

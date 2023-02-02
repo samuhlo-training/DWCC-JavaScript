@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+    }
+    button {
+      padding: 3px;
+      margin: 3px;
+    }
+    #cliente,
+    #producto {
+      text-align: center;
+      margin-left: 4%;
+      margin-top: 1%;
+    }
+  </style>
+  <body>
+    <div id="cliente">
+      <h2>CLIENTE</h2>
+      <h3>Ficha del Cliente :</h3>
+      <label for="nombre">Nombre: </label>
+      <input type="text" name="nombre" id="nombreCliente" />
+      <br /><br />
+      <label for="apellido">Apellido :</label>
+      <input type="text" name="apellido" id="apellidoCliente" />
+      <br /><br />
+      <label for="dni">DNI :</label>
+      <input type="text" name="dni" id="dniCliente" />
+      <br /><br />
+      <label for="email">Email :</label>
+      <input type="text" name="email" id="emailCliente" />
+      <br /><br />
+      <button onclick="altaCliente()">ALTA CLIENTE</button>
+      <button onclick="bajaCliente()">BAJA CLIENTE</button>
+      <br /><br />
+    </div>
+    <div id="producto">
+      <h2>PRODUCTO</h2>
+      <h3>Ficha del Producto :</h3>
+      <label for="nombre">Nombre: </label>
+      <input type="text" name="nombre" id="nombreProducto" />
+      <br /><br />
+      <label for="descripcion">Descripcion :</label>
+      <input type="text" name="descripcion" id="descripcionProducto" />
+      <br /><br />
+      <label for="precio">Precio :</label>
+      <input type="text" name="precio" id="precioProducto" />
+      <br /><br />
+      <label for="id">ID :</label>
+      <input type="text" name="id" id="idProducto" />
+      <br /><br />
+      <button onclick="altaProducto()">AÑADIR PRODUCTO</button>
+      <button onclick="bajaProducto()">QUITAR PRODUCTO</button>
+      <br /><br />
+    </div>
+
+    <script>
+      const listaClientes = new Array();
+      const listaProductos = new Array();
+
+      const crearCliente = function (nombre, apellido, dni, email) {
+        const cliente = {
+          nombre: nombre,
+          apellido: apellido,
+          dni: dni,
+          email: email,
+        };
+        return cliente;
+      };
+
+      const crearProducto = function (nombre, descripcion, precio_ud, id) {
+        const producto = {
+          nombre: nombre,
+          descripcion: descripcion,
+          precio: precio_ud,
+          id: id,
+        };
+        return producto;
+      };
+
+      const altaCliente = function () {
+        let nombreCliente = document.getElementById("nombreCliente").value;
+        let apellidoCliente = document.getElementById("apellidoCliente").value;
+        let dniCliente = document.getElementById("dniCliente").value;
+        let emailCliente = document.getElementById("emailCliente").value;
+        let nuevoCliente = crearCliente(
+          nombreCliente,
+          apellidoCliente,
+          dniCliente,
+          emailCliente
+        );
+        listaClientes.push(nuevoCliente);
+        console.log(nuevoCliente);
+        console.log(listaClientes);
+        return nuevoCliente;
+      };
+
+      const altaProducto = function () {
+        let nombreProducto = document.getElementById("nombreProducto").value;
+        let descripcionProducto = document.getElementById(
+          "descripcionProducto"
+        ).value;
+        let precioProducto = document.getElementById("precioProducto").value;
+        let idProducto = document.getElementById("idProducto").value;
+        let nuevoProducto = crearProducto(
+          nombreProducto,
+          descripcionProducto,
+          precioProducto,
+          idProducto
+        );
+        listaProductos.push(nuevoProducto);
+        console.log(nuevoProducto);
+        console.log(listaProductos);
+        return nuevoProducto;
+      };
+
+      const bajaCliente = function () {
+        const nombresClientes = [];
+        for (let i = 0; i < listaClientes.length; i++) {
+          nombresClientes.push(listaClientes[i].nombre);
+        }
+        console.log(nombresClientes);
+        let opcionesNombre = "";
+        for (let x = 0; x < nombresClientes.length; x++) {
+          opcionesNombre += `${x + 1} . ${nombresClientes[x]}  `;
+        }
+
+        const seleccion = prompt(
+          `Elige el numero de cliente que quieres borrar : ${opcionesNombre}`
+        );
+
+        listaClientes.splice(seleccion - 1, 1);
+        console.log(listaClientes);
+      };
+
+      const bajaProducto = function () {
+        const nombresProductos = [];
+        for (let i = 0; i < listaProductos.length; i++) {
+          nombresProductos.push(listaProductos[i].nombre);
+        }
+        console.log(nombresProductos);
+        let opcionesNombre = "";
+        for (let x = 0; x < nombresProductos.length; x++) {
+          opcionesNombre += `${x + 1} . ${nombresProductos[x]}  `;
+        }
+
+        const seleccion = prompt(
+          `Elige el numero del producto que quieres borrar : ${opcionesNombre}`
+        );
+
+        listaProductos.splice(seleccion - 1, 1);
+        console.log(listaProductos);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+    }
+    button {
+      padding: 3px;
+      margin: 3px;
+    }
+    #cliente,
+    #producto {
+      text-align: center;
+      margin-left: 4%;
+      margin-top: 1%;
+    }
+  </style>
+  <body>
+    <div id="cliente">
+      <h2>CLIENTE</h2>
+      <h3>Ficha del Cliente :</h3>
+      <label for="nombre">Nombre: </label>
+      <input type="text" name="nombre" id="nombreCliente" />
+      <br /><br />
+      <label for="apellido">Apellido :</label>
+      <input type="text" name="apellido" id="apellidoCliente" />
+      <br /><br />
+      <label for="dni">DNI :</label>
+      <input type="text" name="dni" id="dniCliente" />
+      <br /><br />
+      <label for="email">Email :</label>
+      <input type="text" name="email" id="emailCliente" />
+      <br /><br />
+      <button onclick="altaCliente()">ALTA CLIENTE</button>
+      <button onclick="bajaCliente()">BAJA CLIENTE</button>
+      <br /><br />
+    </div>
+    <div id="producto">
+      <h2>PRODUCTO</h2>
+      <h3>Ficha del Producto :</h3>
+      <label for="nombre">Nombre: </label>
+      <input type="text" name="nombre" id="nombreProducto" />
+      <br /><br />
+      <label for="descripcion">Descripcion :</label>
+      <input type="text" name="descripcion" id="descripcionProducto" />
+      <br /><br />
+      <label for="precio">Precio :</label>
+      <input type="text" name="precio" id="precioProducto" />
+      <br /><br />
+      <label for="id">ID :</label>
+      <input type="text" name="id" id="idProducto" />
+      <br /><br />
+      <button onclick="altaProducto()">AÑADIR PRODUCTO</button>
+      <button onclick="bajaProducto()">QUITAR PRODUCTO</button>
+      <br /><br />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1 - B</title>
+  </head>
+  <body>
+    <script>
+      //Crea un array con los meses del año. Utilizando solo métodos de arrays,  copia los tres primeros meses en el array "invierno". Elimina el mes de "febrero" y "marzo" y en su lugar añade "mes2" y "mes3".  Muestra el valor de los dos arrays.
+
+      const mesesAño = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ];
+      const invierno = mesesAño.splice(0, 3);
+      console.log(invierno);
+      mesesAño.unshift("mes3");
+      mesesAño.unshift("mes2");
+      mesesAño.unshift("Enero");
+      console.log(mesesAño);
+    </script>
+  </body>
+</html>

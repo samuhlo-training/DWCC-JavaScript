@@ -1,0 +1,33 @@
+h1{
+    text-align: center;
+}
+
+#contenedor {
+    position: relative; 
+    height: 600px;
+    width: 900px;
+    border: 2px solid black;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flecha{
+    position: relative; 
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border: 2px solid green;
+    padding: 5px;
+    box-sizing: border-box;
+    background: white;
+    opacity: .8;
+
+}
+
+.imagen{
+    width: 35px;
+    height: 35px;
+}
