@@ -1,0 +1,149 @@
+body{
+    background-color: #1E1F20 ;
+    font-family: 'Inconsolata', monospace;
+    height: 100vh;
+    margin: 0px;
+}
+/*GENERALES*/
+
+
+.flex{
+    display: flex;
+
+}
+
+
+
+::placeholder{
+    color: white;
+    font-family: 'Inconsolata', monospace;
+    margin-left:1em ;
+}
+.columna{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 375px;
+    height: 52px;
+    background-color:#2A2C2E ;
+    border-radius: 15px;
+    border: 2px;
+    margin:0.5em 0em;
+}
+
+input, select, textarea{
+    color: white;
+}
+label{
+    color: white;
+}
+.checkbox{
+    width: 1em;
+    height: 1em;
+}
+
+.nombre_apellido > input,
+.botones > input{
+    width: 177px;
+    height: 52px;
+    margin: 0.5em;
+}
+
+h3{
+    color: #999999;
+    font-weight: 600;
+font-size: 16px;
+line-height: 17px;
+margin: 0.2em 0em;
+}
+h1{
+    margin: 0.2em 0em;
+    color: white;
+    font-weight: 800;
+font-size: 38px;
+line-height: 40px;
+}
+.resaltar{
+    color: #F25252;
+}
+
+/*LOGO*/
+header{
+    padding: 1em 3em;
+    margin-bottom: 3em;
+}
+.circulo{
+    background-color: #F25252;
+    border-radius: 50% ;
+    height: 40px;
+    width: 40px;
+}
+.logo > span{
+   font-family: 'Inconsolata', monospace;
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 25px;
+    padding: 0.3rem;
+    color: white
+}
+
+/*/FOMULARIO*/
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 480px;
+    height: 660px;
+    padding: 1em;
+    margin-left: 15%;
+}
+
+/*AVANCE FORMULARIO*/
+
+.rectangulo{
+    width: 94px;
+    height: 8px;
+    background-color: #2A2C2E;
+    margin: 0.8em 0.5em;
+}
+.lleno{
+    background-color: #F25252;
+}
+
+.passnormas {
+    font-size: 12px;
+}
+
+.fullcheck{
+    width: 370px;
+    padding: 0.4em;
+}
+/*BOTONES*/
+
+.continuar{
+    background-color: #F25252;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+}
+.volver{
+    font-style: normal;
+    color: white;
+font-weight: 800;
+font-size: 16px;
+line-height: 17px;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+
+
+

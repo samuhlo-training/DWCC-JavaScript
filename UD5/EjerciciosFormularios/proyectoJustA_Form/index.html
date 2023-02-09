@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustA.Form</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo flex">
+            <div class="circulo"></div>
+            <span>JustA.Form</span>
+        </div>
+    </header>
+
+    <div id="primero" class="formulario">
+        <h3>EMPIEZA GRATIS</h3>
+        <h1>Crea una nueva cuenta<span class="resaltar">.</span></h1>
+        <div class="contador_lineas flex">
+            <div class="rectangulo lleno"></div>
+            <div class="rectangulo"></div>
+            <div class="rectangulo"></div>
+        </div>
+
+        <div class="nombre_apellido flex">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos " />
+        </div>
+        <div class="flex columna">
+            <input type="text" id="email" name="email" placeholder="Email" />
+            <input type="password" id="password" name="password" oninput="checkPassword()" required
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" placeholder="Password" />
+            <div class="passnormas">
+                Debe contener una <span class="resaltar">minuscula</span>, una <span class="resaltar">mayuscula</span> y
+                un <span class="resaltar">digito</span>.
+            </div>
+            <input type="password" id="repeatPassword" disabled placeholder="* Repetir Password">
+            <div><input class="checkbox" type="checkbox" id="showPass" onchange="showPassword()">
+                <label for="showPass">Mostrar <span class="resaltar">contraseña</span></label>
+            </div>
+            <div class="check_varios flex columna">
+
+                <div><input class="checkbox" type="checkbox" id="terminos">
+                    <label for="terminos">Acepta los <span class="resaltar">terminos</span> y <span
+                            class="resaltar">condiciones de la web</span></label>
+                </div>
+
+            </div>
+        </div>
+        <input class="continuar" type="submit" value="Comenzar" onclick="comenzar()" />
+    </div>
+    </div>
+
+    <div id="segundo" class="formulario hidden">
+        <h3>PASO 2 DE 3</h3>
+        <h1>Dinos un poco mas<span class="resaltar">.</span></h1>
+        <div class="contador_lineas flex">
+            <span class="rectangulo lleno"></span>
+            <span class="rectangulo lleno"></span>
+            <span class="rectangulo"></span>
+        </div>
+        <div class="flex columna">
+            <input type="text" id="dni" name="dni" placeholder="DNI" />
+            <input type="text" id="telefono" name="telefono" placeholder="Telefono" />
+            <input type="text" id="pais" name="pais" placeholder="Pais" />
+
+            <div class="flex columna check_varios">
+                <div class="fullcheck"><input class="checkbox" type="checkbox" id="privacidad">
+                    <label for="privacidad">He leido y acepto la <span class="resaltar">politica de
+                            privacidad</span></label>
+                </div>
+
+            </div>
+        </div>
+        <div class="botones flex">
+            <input class="volver" type="submit" value="Volver" onclick="volver()" />
+            <input class="continuar" type="submit" value="Continuar" onclick="continuar()" />
+        </div>
+
+    </div>
+
+    <div id="tercero" class="formulario hidden">
+        <h3>PASO 3 DE 3</h3>
+        <h1>Ya para terminar<span class="resaltar">.</span></h1>
+        <div class="contador_lineas flex">
+            <div class="rectangulo lleno"></div>
+            <div class="rectangulo lleno"></div>
+            <div class="rectangulo lleno"></div>
+        </div>
+        <div class="flex columna">
+            <input type="text" id="empresa" name="empresa" placeholder="Empresa" />
+            <input type="text" id="cargo" name="cargo" placeholder="Cargo" />
+            <input type="text" id="descripcion" name="descripcion" placeholder="Algo mas que nos quieras contar ??" />
+
+            <div class="flex columna check_varios">
+                <div class="fullcheck"><input class="checkbox" type="checkbox" id="descuentos">
+                    <label for="descuentos">Recibir <span class="resaltar">descuentos exclusivos</span>, novedades y
+                        tendencias por email. Te Puedes dar de baja desde tu panel</label>
+                </div>
+
+            </div>
+        </div>
+        <div class="botones flex">
+            <input class="volver" type="submit" value="Volver" onclick="volverDos()" />
+            <input class="continuar" type="submit" value="FINALIZAR" onclick="finalizar()" />
+        </div>
+
+    </div>
+
+    <div id="final" class="formulario hidden">
+        <h3>AQUI ESTAN TUS DATOS</h3>
+        <h1>Felicidades<span class="resaltar">!</span></h1>
+        <div class="flex columna">
+            <input type="text" id="nombreFinal" name="nombreFinal" />
+            <input type="text" id="apellidosFinal" name="apellidosFinal" />
+            <input type="text" id="emailFinal" name="emailFinal" />
+            <input type="text" id="dniFinal" name="dniFinal" />
+            <input type="text" id="telefonoFinal" name="telefonoFinal" />
+            <input type="text" id="paisFinal" name="paisFinal" />
+            <input type="password" id="passwordFinal" name="passwordFinal" />
+            <div class="checkboxes">
+                <input class="checkbox" type="checkbox" id="showPass" onchange="showPasswordFinal()">
+                <label for="showPass">Mostrar <span class="resaltar">contraseña</span></label>
+            </div>
+
+        </div>
+        <input class="volver_inicio continuar" type="submit" value="Volver al inicio" onclick="reset()" />
+
+    </div>
+
+    <div class="imageBack"></div>
+
+
+
+
+
+
+</body>
+
+</html>
