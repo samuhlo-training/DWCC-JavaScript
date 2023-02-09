@@ -1,5 +1,23 @@
 "use strict";
 
+//FUNCION WINDOW ANIMACION
+
+let imgData = [
+  "proyectoLogin2.png",
+  "proyectoLogin3.png",
+  "proyectoLogin4.png",
+  "proyectoLogin1.png",
+];
+function animar() {
+  let target = document.getElementById("rightside");
+  let nextImg = imgData.shift();
+  imgData.push(nextImg);
+  target.style.background =
+    "linear-gradient(90deg, rgba(30,31,32,1) 0%, rgba(30,31,32,0.9528011888349089) 20%, rgba(30,31,32,0) 100%), url(images/" +
+    nextImg;
+}
+window.setInterval("animar()", 10000);
+
 //FUNCIONES PARA LAS COOKIES
 
 //Crea la cookie estableciendo el nombre, el valor y el tiempo de duracion
