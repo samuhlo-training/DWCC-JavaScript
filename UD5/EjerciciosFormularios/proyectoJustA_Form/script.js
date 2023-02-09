@@ -24,6 +24,7 @@ function getCookie(cName) {
 //Comprueban los datos, y si pasan, crearan la cookie
 
 // -------- 1 ----------
+
 // Validar nombre
 function validarNombre() {
   let name = document.getElementById("nombre").value;
@@ -342,3 +343,39 @@ document.addEventListener("keydown", function (e) {
     }
   }
 });
+
+//Exprexiones comunes
+
+// Solo numeros: ^[0-9]+$
+
+// Solo letras: ^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$
+
+// Letras con espacios: ^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$
+
+// Nombres y Apellidos: ^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$
+
+// Precio: ^[0-9]+[.,]{1,1}\[0]{2,2}$
+
+// Numeros enteros y decimales: ^\d*\.\d+$
+
+// Numeros enteros positivos y negativos : ^-?\d*(\.\d+)?$
+
+// Separador de miles y decimales :^(?!0+\.00)(?=.{1,9}(\.|$))(?!0(?!\.))\d{1,3}(,\d{3})*(\.\d+)?$
+
+// Fecha (dd/mm/yyyy): ^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$
+
+// Horario (Formato 12h): ((1[0-2]|0?[1-2]):([0-5][0-9]) ?([AaPp][Mm]))
+
+// Horario (Formato 24h): ^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$
+
+// Contraseña Fuerte ( caracter especial ): (?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}
+
+// Nombres usuario : ^[a-z0-9_-]{3,16}$
+
+// Validacion email : ^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$
+
+// Validacion URL: ^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$
+
+// Validacion IPv4 : ^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+
+// Validacion hexadecimal : ^#?([a-f0-9]{6}|[a-f0-9]{3})$

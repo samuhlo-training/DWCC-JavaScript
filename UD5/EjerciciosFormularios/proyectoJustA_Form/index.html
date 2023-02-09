@@ -72,7 +72,13 @@
             <div class="flex columna">
                 <input type="text" id="dni" name="dni" placeholder="DNI" />
                 <input type="text" id="telefono" name="telefono" placeholder="Telefono" />
-                <input type="text" id="pais" name="pais" placeholder="Pais" />
+                <input list="paises" id="pais" name="pais" placeholder="Pais" />
+                <datalist id="paises">
+                    <option value="España"></option>
+                    <option value="Portugal"></option>
+                    <option value="Francia"></option>
+                    <option value="Alemania"></option>
+                </datalist>
 
                 <div class="flex columna check_varios">
                     <div class="fullcheck"><input class="checkbox" type="checkbox" id="privacidad">
