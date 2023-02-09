@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="window.js"></script>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .btn {
+            background-color: lightblue;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="button" value="Open New Window" class="btn" onclick="openWindow()" />
+        <input type="button" value="Close Window" class="btn" onclick="closeWindow()" />
+        <input type="button" value="Move Window 10 pixels right and down" class="btn" onclick="moveWindowRightDown()" />
+        <input type="button" value="Move Window to position 100,100" class="btn" onclick="moveWindowTo100x100()" />
+        <input type="button" value="Increase Window size 10 pixels in width and length" class="btn"
+            onclick="increaseWindowSize10()" />
+        <input type="button" value="Increase Window size to 400x200" class="btn"
+            onclick="increaseWindowSizeTo400x200()" />
+        <input type="button" value="Put Scroll to Top" class="btn" onclick="scrollToTop()" />
+        <input type="button" value="Position Scroll 10 pixels from Top" class="btn" onclick="scroll10FromTop()" />
+    </div>
+
+</body>
+
+</html>
