@@ -344,6 +344,19 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+// .	Punto: Coincide con cualquier carácter excepto un salto de línea.
+// [ ]	Clase de caracteres: Coincide con cualquier carácter contenido entre corchetes.
+// [^ ]	Clase de caracteres negados: Coincide con cualquier carácter que no está contenido dentro de los corchetes.
+// *	Asterisco: Corresponde con 0 o más repeticiones del símbolo precedente.
+// +	Signo de más: Corresponde con 1 o más repeticiones del símbolo precedente.
+// ?	Signo de interrogación: Hace que el símbolo precedente sea opcional.
+// {n,m}	Llaves: Corresponde al menos "n" pero no más de "m" repeticiones del símbolo precedente.
+// (xyz)	Grupo de caracter: Hace coincidir los caracteres xyz en ese orden exacto.
+// |	Alternancia: Corresponde a los caracteres anteriores o los caracteres después del símbolo.
+// \	Escapa el siguiente carácter: Esto le permite hacer coincidir los caracteres reservados [ ] ( ) { } . * + ? ^ $ \ |
+// ^	Acento circunflejo: Hace coincidir el principio de la entrada.
+// $	Símbolo de dólar: Corresponde al final de la entrada.
+
 //Exprexiones comunes
 
 // Solo numeros: ^[0-9]+$
