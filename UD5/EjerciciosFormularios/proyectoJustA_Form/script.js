@@ -1,23 +1,5 @@
 "use strict";
 
-//FUNCION WINDOW ANIMACION
-
-let imgData = [
-  "proyectoLogin2.png",
-  "proyectoLogin3.png",
-  "proyectoLogin4.png",
-  "proyectoLogin1.png",
-];
-function animar() {
-  let target = document.getElementById("rightside");
-  let nextImg = imgData.shift();
-  imgData.push(nextImg);
-  target.style.background =
-    "linear-gradient(90deg, rgba(30,31,32,1) 0%, rgba(30,31,32,0.9528011888349089) 20%, rgba(30,31,32,0) 100%), url(images/" +
-    nextImg;
-}
-window.setInterval("animar()", 10000);
-
 //FUNCIONES PARA LAS COOKIES
 
 //Crea la cookie estableciendo el nombre, el valor y el tiempo de duracion
@@ -311,3 +293,52 @@ function reset() {
   document.getElementById("final").classList.toggle("hidden");
   document.getElementById("primero").classList.toggle("hidden");
 }
+
+//FUNCION WINDOW ANIMACION
+
+let imgData = [
+  "proyectoLogin2.png",
+  "proyectoLogin3.png",
+  "proyectoLogin4.png",
+  "proyectoLogin1.png",
+];
+function animar() {
+  let target = document.getElementById("rightside");
+  let nextImg = imgData.shift();
+  imgData.push(nextImg);
+  target.style.background =
+    "linear-gradient(90deg, rgba(30,31,32,1) 0%, rgba(30,31,32,0.9528011888349089) 20%, rgba(30,31,32,0) 100%), url(images/" +
+    nextImg;
+}
+window.setInterval("animar()", 10000);
+
+//FUNCION PARA CONTINUAR CON ENTER
+
+document.addEventListener("keydown", function (e) {
+  console.log(e.key);
+  const primero = document.getElementById("primero");
+  const segundo = document.getElementById("segundo");
+  const tercero = document.getElementById("tercero");
+  const final = document.getElementById("cuarto");
+  if (e.key === "Enter") {
+    if (
+      !primero.classList.contains("hidden") &&
+      segundo.classList.contains("hidden") &&
+      tercero.classList.contains("hidden")
+    ) {
+      comenzar();
+    } else if (
+      primero.classList.contains("hidden") &&
+      !segundo.classList.contains("hidden") &&
+      tercero.classList.contains("hidden")
+    ) {
+      continuar();
+    } else if (
+      primero.classList.contains("hidden") &&
+      segundo.classList.contains("hidden") &&
+      !tercero.classList.contains("hidden")
+    ) {
+      finalizar();
+    }
+  }
+});
