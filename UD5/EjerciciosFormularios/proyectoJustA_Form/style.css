@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
 body{
     background-color: #1E1F20 ;
     font-family: 'Inconsolata', monospace;
@@ -6,6 +12,28 @@ body{
 }
 /*GENERALES*/
 
+
+.grid{
+    display: grid;
+    grid-template-areas:
+    "header sectionright"
+    "sectionleft sectionright";
+    grid-template-columns: 1.5fr 2fr;
+}
+
+header{
+    grid-area: header;
+}
+
+#leftside{
+    grid-area: sectionleft;
+}
+
+#rightside{
+    grid-area: sectionright;
+    background:linear-gradient(90deg, rgba(30,31,32,1) 0%, rgba(30,31,32,0.9528011888349089) 20%, rgba(30,31,32,0) 100%), url(images/proyectoLogin1.png);
+
+}
 
 .flex{
     display: flex;
@@ -72,7 +100,7 @@ line-height: 40px;
 /*LOGO*/
 header{
     padding: 1em 3em;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
 }
 .circulo{
     background-color: #F25252;
