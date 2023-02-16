@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkbox List</title>
+    <script>
+        function createCheckboxes() {
+            const container = document.getElementById("checkbox-container");
+            for (let i = 0; i < 20; i++) {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.value = Math.floor(Math.random() * 100);
+                container.appendChild(checkbox);
+                container.appendChild(document.createTextNode(" ")); // Add space between checkbox and label
+            }
+        }
+
+        function markAll() {
+            const checkboxes = document.querySelectorAll("input[type='checkbox']");
+            checkboxes.forEach(checkbox => {
+                if (!checkbox.checked) {
+                    checkbox.checked = true;
+                }
+            });
+        }
+
+        function uncheckAll() {
+            const checkboxes = document.querySelectorAll("input[type='checkbox']");
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="checkbox-container"></div>
+    <button onclick="createCheckboxes()">Create Checkboxes</button>
+    <button onclick="markAll()">Mark All</button>
+    <button onclick="uncheckAll()">Uncheck All</button>
+</body>
+
+</html>

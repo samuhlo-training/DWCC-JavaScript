@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mark Occurrences</title>
+    <script>
+        function markOccurrences() {
+            const word = prompt("Please enter a word:");
+            const body = document.getElementsByTagName("body")[0];
+            const regex = new RegExp('\\b' + word + '\\b', 'gi');
+            const matches = body.innerHTML.match(regex);
+            if (matches) {
+                body.innerHTML = body.innerHTML.replace(regex, '<mark>$&</mark>');
+                alert(matches.length + " occurrences of the word '" + word + "' were marked.");
+            } else {
+                alert("The word '" + word + "' does not appear in this page.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit, tortor eget pharetra feugiat, turpis velit
+        commodo velit, vel laoreet massa dolor at augue. Sed ut leo eget sapien bibendum lobortis. Sed ut ullamcorper
+        odio. Mauris ut nisi mi. Ut lacinia augue sit amet dui efficitur, nec dignissim libero tincidunt. Suspendisse
+        vestibulum lacus ipsum, non lobortis tellus rhoncus non. Donec aliquet non erat ac gravida. Sed vel lectus in
+        mauris blandit bibendum at vel ex. Vestibulum id sapien ac nulla lobortis eleifend a quis nulla. Nam gravida
+        purus sed lacus mollis hendrerit. Quisque blandit gravida magna non hendrerit.</p>
+    <p>Donec maximus nisl et justo laoreet, non sollicitudin lorem sagittis. Duis consequat eleifend mi, eget sagittis
+        massa varius nec. Suspendisse potenti. Sed maximus nulla et mauris sollicitudin, eu rhoncus orci aliquet. Proin
+        bibendum, nisl id rhoncus blandit, risus nibh lobortis metus, vel tristique arcu sapien in leo. Vestibulum
+        gravida quam odio, at ullamcorper augue venenatis sed. Ut a vehicula elit. Nulla facilisi. Integer in nulla in
+        massa malesuada gravida non non lacus. Suspendisse a nibh vitae orci sagittis interdum ut eu est. Suspendisse
+        potenti. Donec ut consequat tellus, eget faucibus ipsum. Duis sit amet leo justo.</p>
+</body>
+<button onclick="markOccurrences()">Mark occurrences</button>
+
+</html>

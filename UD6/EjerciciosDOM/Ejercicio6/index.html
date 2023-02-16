@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Gallery</title>
+    <style>
+        img {
+            width: 400px;
+            height: 400px;
+            margin: 2em;
+        }
+
+        .container {
+            display: flex;
+
+        }
+    </style>
+    <script>
+        function hideImage(event) {
+            const img = event.target;
+            if (img.style.display === "none") {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        }
+
+        function deleteImage(event) {
+            const img = event.target;
+            img.parentNode.removeChild(img);
+        }
+
+        function respawnImages() {
+            const images = document.getElementsByTagName("img");
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = "block";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container"><img src="image1.jpg" onclick="hideImage(event)" ondblclick="deleteImage(event)">
+        <img src="image2.jpg" onclick="hideImage(event)" ondblclick="deleteImage(event)">
+        <img src="image3.jpg" onclick="hideImage(event)" ondblclick="deleteImage(event)">
+    </div>
+
+    <br><br>
+    <button onclick="respawnImages()">Respawn</button>
+</body>
+
+</html>

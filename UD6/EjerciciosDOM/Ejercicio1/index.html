@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Paragraphs</title>
+    <script>
+        function generateParagraphs() {
+            const body = document.getElementsByTagName("body")[0];
+            for (let i = 1; i <= 10; i++) {
+                const paragraph = document.createElement("p");
+                const text = document.createTextNode("Random text #" + i);
+                paragraph.appendChild(text);
+                body.appendChild(paragraph);
+            }
+        }
+
+        function insertText() {
+            let position;
+            do {
+                position = prompt("Please enter a number between 1 and 10:");
+            } while (position < 1 || position > 10);
+
+            const body = document.getElementsByTagName("body")[0];
+            const newParagraph = document.createElement("p");
+            const text = document.createTextNode(prompt("Please enter your text:"));
+            const boldText = document.createElement("b");
+            boldText.appendChild(text);
+            newParagraph.appendChild(boldText);
+
+            if (position == 10) {
+                body.appendChild(newParagraph);
+            } else {
+                const referenceNode = body.getElementsByTagName("p")[position - 1];
+                body.insertBefore(newParagraph, referenceNode.nextSibling);
+            }
+        }
+    </script>
+</head>
+
+<body onload="generateParagraphs()">
+</body>
+<button onclick="insertText()">Insert text</button>
+
+</html>

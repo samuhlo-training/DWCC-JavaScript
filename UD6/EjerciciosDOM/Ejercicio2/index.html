@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insert Paragraph</title>
+    <script>
+        function insertParagraph() {
+            const body = document.getElementsByTagName("body")[0];
+            const totalWords = countWords(body.innerText);
+            const newParagraph = document.createElement("p");
+            const boldText = document.createElement("b");
+            const text = document.createTextNode("This document has " + totalWords + " words.");
+            boldText.appendChild(text);
+            newParagraph.appendChild(boldText);
+            body.insertBefore(newParagraph, body.firstChild);
+        }
+
+        function countWords(text) {
+            return text.trim().split(/\s+/).length;
+        }
+    </script>
+</head>
+
+<body onload="insertParagraph()">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Nulla eget dui vel ex fringilla ullamcorper.</p>
+    <p>Suspendisse non libero non massa tempus commodo.</p>
+</body>
+
+</html>

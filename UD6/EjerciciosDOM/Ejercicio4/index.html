@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sort Words</title>
+    <script>
+        function sortWords() {
+            const ul = document.getElementsByTagName("ul")[0];
+            const liArray = Array.from(ul.getElementsByTagName("li"));
+            const sortedLiArray = liArray.sort((a, b) => a.innerHTML.localeCompare(b.innerHTML));
+            sortedLiArray.forEach(li => ul.appendChild(li));
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>zebra</li>
+        <li>banana</li>
+        <li>apple</li>
+        <li>orange</li>
+        <li>grape</li>
+        <li>lemon</li>
+        <li>pear</li>
+    </ul>
+    <button onclick="sortWords()">Order alphabetically</button>
+</body>
+
+</html>
