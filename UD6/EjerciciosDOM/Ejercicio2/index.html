@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <title>Insert Paragraph</title>
+    <title>Insertar contador de palabras</title>
     <script>
         function insertParagraph() {
             const body = document.getElementsByTagName("body")[0];
             const totalWords = countWords(body.innerText);
             const newParagraph = document.createElement("p");
             const boldText = document.createElement("b");
-            const text = document.createTextNode("This document has " + totalWords + " words.");
+            const text = document.createTextNode("Este documento tiene " + totalWords + " palabras.");
             boldText.appendChild(text);
             newParagraph.appendChild(boldText);
             body.insertBefore(newParagraph, body.firstChild);

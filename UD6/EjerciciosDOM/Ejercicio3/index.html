@@ -2,18 +2,18 @@
 <html>
 
 <head>
-    <title>Mark Occurrences</title>
+    <title>Marca la palabra</title>
     <script>
         function markOccurrences() {
-            const word = prompt("Please enter a word:");
+            const word = prompt("Introduce una palabra");
             const body = document.getElementsByTagName("body")[0];
             const regex = new RegExp('\\b' + word + '\\b', 'gi');
             const matches = body.innerHTML.match(regex);
             if (matches) {
                 body.innerHTML = body.innerHTML.replace(regex, '<mark>$&</mark>');
-                alert(matches.length + " occurrences of the word '" + word + "' were marked.");
+                alert(matches.length + " ocurrencias de la plabra '" + word + "' fueron marcadas");
             } else {
-                alert("The word '" + word + "' does not appear in this page.");
+                alert("La palabra '" + word + "' no aparece en esta pagina.");
             }
         }
     </script>
@@ -33,6 +33,6 @@
         massa malesuada gravida non non lacus. Suspendisse a nibh vitae orci sagittis interdum ut eu est. Suspendisse
         potenti. Donec ut consequat tellus, eget faucibus ipsum. Duis sit amet leo justo.</p>
 </body>
-<button onclick="markOccurrences()">Mark occurrences</button>
+<button onclick="markOccurrences()">Marcar palabra</button>
 
 </html>

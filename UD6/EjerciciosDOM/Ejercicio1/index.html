@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Dynamic Paragraphs</title>
+    <title>Insertar texto entre parrafos</title>
     <script>
         function generateParagraphs() {
             const body = document.getElementsByTagName("body")[0];
             for (let i = 1; i <= 10; i++) {
                 const paragraph = document.createElement("p");
-                const text = document.createTextNode("Random text #" + i);
+                const text = document.createTextNode("Texto aleatorio #" + i);
                 paragraph.appendChild(text);
                 body.appendChild(paragraph);
             }
@@ -17,12 +17,12 @@
         function insertText() {
             let position;
             do {
-                position = prompt("Please enter a number between 1 and 10:");
+                position = prompt("Porfavor introduce un numero entre 1 y 10:");
             } while (position < 1 || position > 10);
 
             const body = document.getElementsByTagName("body")[0];
             const newParagraph = document.createElement("p");
-            const text = document.createTextNode(prompt("Please enter your text:"));
+            const text = document.createTextNode(prompt("Porfavor intruce tu texto:"));
             const boldText = document.createElement("b");
             boldText.appendChild(text);
             newParagraph.appendChild(boldText);
@@ -39,6 +39,6 @@
 
 <body onload="generateParagraphs()">
 </body>
-<button onclick="insertText()">Insert text</button>
+<button onclick="insertText()">Añade texto</button>
 
 </html>

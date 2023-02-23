@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Image Gallery</title>
+    <title>Galeria de imagenes</title>
     <style>
         img {
             width: 400px;
@@ -40,13 +40,14 @@
 </head>
 
 <body>
+    <h3>Un click oculta imagen, dos borra.</h3><br><br>
     <div class="container"><img src="image1.jpg" onclick="hideImage(event)" ondblclick="deleteImage(event)">
         <img src="image2.jpg" onclick="hideImage(event)" ondblclick="deleteImage(event)">
         <img src="image3.jpg" onclick="hideImage(event)" ondblclick="deleteImage(event)">
     </div>
 
     <br><br>
-    <button onclick="respawnImages()">Respawn</button>
+    <button onclick="respawnImages()">Reaparecer</button>
 </body>
 
 </html>
