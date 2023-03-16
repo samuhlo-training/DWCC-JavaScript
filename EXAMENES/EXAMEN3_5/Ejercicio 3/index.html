@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 EXAMEN UD3_5</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        button {
+            margin: 1em;
+        }
+
+        .contendor {
+            display: flex;
+            margin: 1em;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <label for="precio">Precio: </label>
+        <input type="text" minlength="1" maxlength="3" id="precio" name="precio">
+        <button type="button" onclick="enviarPrecio()">Guardar Precio</button>
+    </div>
+
+    <button type="button" onclick="showCookies()">Leer Cookies</button>
+    <div id="mCookies" class="contenedor hidden">
+        <label for="pulsaciones">Pulsaciones:</label>
+        <input type="text" id="pulsaciones">
+        <label for="precioGuardado">Precio guardado:</label>
+        <input type="text" id="precioGuardado">
+
+    </div>
+
+
+</body>
+
+</html>
