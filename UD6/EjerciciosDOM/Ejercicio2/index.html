@@ -5,7 +5,7 @@
     <title>Insertar contador de palabras</title>
     <script>
         function insertParagraph() {
-            const body = document.getElementsByTagName("body")[0];
+            const body = document.body;
             const totalWords = countWords(body.innerText);
             const newParagraph = document.createElement("p");
             const boldText = document.createElement("b");
@@ -22,7 +22,7 @@
 </head>
 
 <body onload="insertParagraph()">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Lorem ipsum dolor sit pene amet, consectetur adipiscing elit.</p>
     <p>Nulla eget dui vel ex fringilla ullamcorper.</p>
     <p>Suspendisse non libero non massa tempus commodo.</p>
 </body>
