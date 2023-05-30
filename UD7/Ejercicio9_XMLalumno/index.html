@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7.1 Petición AJAX y procesamiento de respuesta XML</title>
+</head>
+
+<body>
+    <script>
+        // Crear un nuevo objeto XMLHttpRequest
+        let xhr = new XMLHttpRequest();
+
+        // Configurar la solicitud
+        xhr.open("GET", "alumnos.xml", true);
+
+
+        // Configurar qué hacer cuando la solicitud se complete
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Obtener el XML de la respuesta
+                let xml = xhr.responseXML;
+
+                // Obtener todos los elementos "alumno" del XML
+                let alumnos = xml.getElementsByTagName("alumno");
+
+                // Crear una tabla
+                let table = document.createElement("table");
+
+                // Recorrer todos los alumnos
+                for (let i = 0; i < alumnos.length; i++) {
+                    // Crear una fila para cada alumno
+                    let row = document.createElement("tr");
+
+                    // Obtener el nombre, apellido y nota del alumno
+                    let nombre = alumnos[i].getElementsByTagName("nombre")[0].textContent;
+                    let apellido = alumnos[i].getElementsByTagName("apellido")[0].textContent;
+                    let nota = alumnos[i].getElementsByTagName("nota")[0].textContent;
+                    let convocatoria = alumnos[i].getElementsByTagName("nota")[0].getAttribute('convocatoria');
+
+                    // Agregar los datos a la fila
+                    row.innerHTML = `<td>${nombre}</td><td>${apellido}</td><td>${nota}</td><td>${convocatoria}</td>`;
+
+                    // Agregar la fila a la tabla
+                    table.appendChild(row);
+                }
+
+                // Agregar la tabla al documento
+                document.body.appendChild(table);
+            }
+        };
+
+        // Enviar la solicitud
+        xhr.send();
+    </script>
+
+</body>
+
+</html>
