@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <script>
+        // Definir la URL base
+        let url = 'http://searchnames.me/api/';
+
+        // Agregar el número de nombres deseados como parámetro
+        url += '?results=3';
+
+        async function fetchNames() {
+            try {
+                // Realizar la petición con fetch
+                let response = await fetch(url);
+
+                // Comprobar que la respuesta no contiene errores HTTP
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                // La respuesta es válida, convertirla a JSON
+                let data = await response.json();
+
+                // Imprimir los nombres en la consola
+                for (let result of data.results) {
+                    console.log(`${result.nombre} ${result.apellido}`);
+                }
+            } catch (error) {
+                // Algo salió mal, imprimir el mensaje de error en la consola
+                console.error('Ha habido un problema con tu petición fetch:', error);
+            }
+        }
+
+        fetchNames();
+    </script>
+
+</body>
+
+</html>

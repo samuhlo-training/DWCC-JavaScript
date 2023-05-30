@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <script>
+        // Primera promesa que se resuelve instantáneamente
+        let promesa1 = Promise.resolve('Promesa 1 resuelta');
+
+        // Segunda promesa que se resuelve después de 2 segundos
+        let promesa2 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Promesa 2 resuelta');
+            }, 2000);
+        });
+
+        // Tercera promesa que se resuelve después de 6 segundos
+        let promesa3 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Promesa 3 resuelta');
+            }, 6000);
+        });
+
+        // Ejecutar las promesas en secuencia
+        promesa1
+            .then(result => {
+                console.log(result);  // Imprime "Promesa 1 resuelta"
+                return promesa2;
+            })
+            .then(result => {
+                console.log(result);  // Imprime "Promesa 2 resuelta"
+                return promesa3;
+            })
+            .then(result => {
+                console.log(result);  // Imprime "Promesa 3 resuelta"
+            });
+    </script>
+
+</body>
+
+</html>
