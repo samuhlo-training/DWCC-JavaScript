@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7.9 Semaforo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .exterior {
+            width: 60px;
+            height: 170px;
+            background-color: green;
+            border: 1px solid black;
+        }
+
+        .borde {
+            height: 140px;
+            width: 20px;
+            margin-left: 20px;
+        }
+
+        .fondo {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: black;
+            border-radius: 25px;
+        }
+
+        #rojo.encendido {
+            background-color: red;
+        }
+
+        #amarillo.encendido {
+            background-color: yellow;
+        }
+
+        #verde.encendido {
+            background-color: LawnGreen;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="cambiar">Cambiar</button>
+    <div class="exterior">
+        <div id="verde" class="fondo encendido"></div>
+        <div id="amarillo" class="fondo"></div>
+        <div id="rojo" class="fondo"></div>
+    </div>
+    <div class="borde exterior"></div>
+    <script src="scrip.js"></script>
+</body>
+
+</html>
