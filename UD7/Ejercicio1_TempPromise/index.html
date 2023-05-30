@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7.4.1 - Realizar un temporizador con promesas</title>
+</head>
+
+<body>
+    <script>
+        function temporizador(milisegundos) {
+            let idTemporizador;
+            let promesa = new Promise((resolve, reject) => {
+                idTemporizador = setTimeout(() => {
+                    resolve("Tiempo concluido");
+                }, milisegundos);
+
+                setTimeout(() => {
+                    clearTimeout(idTemporizador);
+                    reject("El tiempo no va bien");
+                }, 2 * milisegundos);
+            });
+
+            return promesa;
+        };
+        // Ejemplo de uso:
+        temporizador(2000)
+            .then((resultado) => {
+                console.log(resultado); // Tiempo concluido
+            })
+            .catch((error) => {
+                console.error(error); // El tiempo no va bien
+            });
+    </script>
+</body>
+
+</html>
