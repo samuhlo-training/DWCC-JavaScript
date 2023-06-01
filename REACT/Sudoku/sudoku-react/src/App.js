@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   // Aquí se inicializa el estado de la tabla de sudoku
-  const sudokuInicial = [
+
+  const sudokuFacil = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
     [0, 9, 8, 0, 0, 0, 0, 6, 0],
@@ -14,7 +15,37 @@ function App() {
     [0, 0, 0, 4, 1, 9, 0, 0, 5],
     [0, 0, 0, 0, 8, 0, 0, 7, 9],
   ];
-  const [sudokuGrid, setSudokuGrid] = useState(sudokuInicial);
+
+  const sudokuMedio = [
+    [0, 0, 0, 0, 0, 6, 0, 9, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 5],
+    [0, 0, 8, 5, 3, 0, 0, 0, 0],
+    [0, 1, 0, 0, 8, 0, 0, 0, 0],
+    [4, 0, 0, 6, 0, 3, 0, 0, 1],
+    [0, 0, 0, 0, 2, 0, 0, 5, 0],
+    [0, 0, 0, 0, 1, 8, 2, 0, 0],
+    [8, 0, 0, 0, 0, 0, 0, 0, 7],
+    [0, 9, 0, 4, 0, 0, 0, 0, 0],
+  ];
+
+  const sudokuDificil = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 3, 0, 8, 5],
+    [0, 0, 1, 0, 2, 0, 0, 0, 0],
+    [0, 0, 0, 5, 0, 7, 0, 0, 0],
+    [0, 0, 4, 0, 0, 0, 1, 0, 0],
+    [0, 9, 0, 0, 0, 0, 0, 0, 0],
+    [5, 0, 0, 0, 0, 0, 0, 7, 3],
+    [0, 0, 2, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 4, 0, 0, 0, 9],
+  ];
+
+  // Define los tableros iniciales
+  const sudokuFacilInicial = [...sudokuFacil];
+  const sudokuMedioInicial = [...sudokuMedio];
+  const sudokuDificilInicial = [...sudokuDificil];
+
+  const [sudokuGrid, setSudokuGrid] = useState(sudokuFacilInicial);
 
   // Aquí se inicializa el estado del tiempo transcurrido y el estado de pausa
   const [tiempoTranscurrido, setTiempoTranscurrido] = useState(0);
@@ -37,8 +68,23 @@ function App() {
   const minutos = Math.floor(tiempoTranscurrido / 60);
   const segundos = tiempoTranscurrido % 60;
 
-  // Aquí se inicializa el estado de la dificultad
+  // Aquí se inicializa el estado de la dificultad. Se usa el hook de useState para inicializarlo a "Fácil". Luego se usa el hook de useEffect para cambiar el estado de la cuadrícula de sudoku dependiendo de la dificultad. Utilizo un switch para seleccionar la dificultad.
   const [dificultad, setDificultad] = useState("Fácil");
+  useEffect(() => {
+    switch (dificultad) {
+      case "facil":
+        setSudokuGrid([...sudokuFacil]);
+        break;
+      case "medio":
+        setSudokuGrid([...sudokuMedio]);
+        break;
+      case "dificil":
+        setSudokuGrid([...sudokuDificil]);
+        break;
+      default:
+        setSudokuGrid([...sudokuFacil]);
+    }
+  }, [dificultad]);
 
   function comprobarMovimiento(sudokuGrid, numero, fila, columna) {
     // Verifica la fila y la columna recoriendolos con un for
@@ -132,19 +178,6 @@ function App() {
     return false;
   }
 
-  //Para verificar si el juego se ha ganado es facil, coges la cuadrícula del Sudoku y verifica si todas las celdas tienen un número distinto de cero.
-  function isWin(sudokuGrid) {
-    for (let i = 0; i < 9; i++) {
-      for (let j = 0; j < 9; j++) {
-        if (sudokuGrid[i][j] === 0) {
-          return false;
-        }
-      }
-    }
-
-    return true;
-  }
-
   return (
     <div className="tablero_juego">
       {/*Aqui creo la celda, haciendo un map del estado de sudokuGrid. Crea un div por columna, y dentro les mete un input, con una ternaria para si el valor es 0 dejar el input vacio y si no poner el valor, con un trigger de onChange para actualizar el valor de la celda. Por cierto, tambien agregue un ternario para la clase, asi cuando la celda sea diferente a 0 agregara la clase activada para cambiar el color del fondo*/}
@@ -188,15 +221,15 @@ function App() {
             {pausa ? "Resumir" : "Pausar"}
           </button>
 
-          {/*Aqui agrego el boton de dificultad el cual es un select con opciones que al cambiar cambia el hook de dificultad*/}
+          {/*Aqui agrego el boton de dificultad el cual es un select con opciones que al cambiar cambia el hook de dificultad. Cuando se cambia llama al hook de setDificultad y lo cambia por el valor elegido*/}
           <select
             className="btn--dificultad"
             value={dificultad}
             onChange={(e) => setDificultad(e.target.value)}
           >
-            <option value="easy">Fácil</option>
-            <option value="medium">Medio</option>
-            <option value="hard">Difícil</option>
+            <option value="facil">Fácil</option>
+            <option value="medio">Medio</option>
+            <option value="dificil">Difícil</option>
           </select>
         </div>
         <div className="botones_abajo">
@@ -221,10 +254,17 @@ function App() {
           <button
             className="btn--opciones"
             onClick={() => {
-              // Reinicia el temporizador y reanúdalo
-              setTiempoTranscurrido(0);
+              // Reinicia el temporizador y reanuda
               setPausa(false);
-              setSudokuGrid([...sudokuInicial]);
+
+              // Reinicia el tablero de acuerdo con la dificultad seleccionada
+              if (dificultad === "Fácil") {
+                setSudokuGrid([...sudokuFacilInicial]);
+              } else if (dificultad === "Medio") {
+                setSudokuGrid([...sudokuMedioInicial]);
+              } else if (dificultad === "Difícil") {
+                setSudokuGrid([...sudokuDificilInicial]);
+              }
             }}
           >
             Limpiar/Nuevo
