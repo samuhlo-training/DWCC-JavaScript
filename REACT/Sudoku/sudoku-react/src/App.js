@@ -180,42 +180,58 @@ function App() {
 
   return (
     <div className="tablero_juego">
-      {/*Aqui creo la celda, haciendo un map del estado de sudokuGrid. Crea un div por columna, y dentro les mete un input, con una ternaria para si el valor es 0 dejar el input vacio y si no poner el valor, con un trigger de onChange para actualizar el valor de la celda. Por cierto, tambien agregue un ternario para la clase, asi cuando la celda sea diferente a 0 agregara la clase activada para cambiar el color del fondo*/}
       <div className="tablero_sudoku">
         <h1 className="titulo">SUDOKU</h1>
-        {sudokuGrid.map((row, i) => (
-          <div className="fila" key={i}>
-            {row.map((cell, j) => (
-              <input
-                className={`celda ${cell !== 0 ? "activada" : ""}`}
-                key={j}
-                value={cell === 0 ? "" : cell}
-                onChange={(e) => {
-                  // Creamos una copia de la cuadrícula
-                  const newSudokuGrid = [...sudokuGrid];
-                  // Pasamos el nuevo numero a entero, si no es un número, se pasa a 0
-                  const nuevoNumero = parseInt(e.target.value) || 0;
-                  //Usamos la funcion comprobarMovimiento para verificar si el movimiento es valido
-                  if (comprobarMovimiento(newSudokuGrid, nuevoNumero, i, j)) {
-                    // Si el movimiento es valido, actualizamos la cuadrícula
-                    newSudokuGrid[i][j] = nuevoNumero;
-                    //Actualizamos el estado de la cuadrícula con la nueva cuadrícula, actualiza el hook de la cuadricula
-                    setSudokuGrid(newSudokuGrid);
-                  } else {
-                    // Aqui se maneja el caso del numero invalido
-                    alert("Movimiento invalido");
-                  }
-                }}
-              />
+        {/*Aqui creo la celda, haciendo un map del estado de sudokuGrid. Crea un tr por fila, y dentro les mete un tr con un input, con una ternaria para si el valor es 0 dejar el input vacio y si no poner el valor, con un trigger de onChange para actualizar el valor de la celda. Por cierto, tambien agregue un ternario para la clase, asi cuando la celda sea diferente a 0 agregara la clase activada para cambiar el color del fondo.*/}
+        <table>
+          <tbody>
+            {sudokuGrid.map((row, i) => (
+              <tr
+                className={`fila ${i === 2 || i === 5 ? "abBorde" : ""}`}
+                key={i}
+              >
+                {/*Aqui agregue otro ternario para incluir en las filas 3 y 6 una clase con el border botton mas ancho, y en la de abajo lo mismo pero en el borde derecho. Con esto consigo dar forma mas visible los cuadrados de 3x3 .*/}
+                {row.map((cell, j) => (
+                  <td key={j}>
+                    <input
+                      className={`celda ${cell !== 0 ? "activada" : ""} ${
+                        j === 2 || j === 5 ? "deBorder" : ""
+                      }`}
+                      value={cell === 0 ? "" : cell}
+                      onChange={(e) => {
+                        // Creamos una copia de la cuadrícula
+                        const newSudokuGrid = [...sudokuGrid];
+                        // Pasamos el nuevo numero a entero, si no es un número, se pasa a 0
+                        const nuevoNumero = parseInt(e.target.value) || 0;
+                        //Usamos la funcion comprobarMovimiento para verificar si el movimiento es valido
+                        if (
+                          comprobarMovimiento(newSudokuGrid, nuevoNumero, i, j)
+                        ) {
+                          // Si el movimiento es valido, actualizamos la cuadrícula
+                          newSudokuGrid[i][j] = nuevoNumero;
+                          //Actualizamos el estado de la cuadrícula con la nueva cuadrícula, actualiza el hook de la cuadricula
+                          setSudokuGrid(newSudokuGrid.map((fila) => [...fila]));
+                        } else {
+                          // Aqui se maneja el caso del numero invalido
+                          alert("Movimiento invalido");
+                        }
+                      }}
+                    />
+                  </td>
+                ))}
+              </tr>
             ))}
-          </div>
-        ))}
+          </tbody>
+        </table>
       </div>
       {/*Aqui agrego los botones*/}
       <div className="botones">
         <div className="botones_arriba">
-          {/*Aqui agrego el boton del tiempo, donde meto la opcion que al clickar llame a la funcion poner en pausa si no esta en pausa, y si no esta hago una funcion ternaria para si es menor de 10, me ponga un 0 delante de los segundos. Lugo agrego otra funcion ternaria para que me cambie de resume a pausa segun el estado de pausa.*/}
-          <button className="btn--tiempo" onClick={() => setPausa(!pausa)}>
+          {/*Aqui agrego el boton del tiempo, donde meto la opcion que al clickar llame a la funcion poner en pausa si no esta en pausa, y si no esta hago una funcion ternaria para si es menor de 10, me ponga un 0 delante de los segundos. Luego agrego otra funcion ternaria para que me cambie de resume a pausa segun el estado de pausa. Por ultimo en las clases le agrego otra ternaria mas para que me haga un check de si esta en pausa o no, y me agregue una clase para tener el fondo fijo*/}
+          <button
+            className={`btn--opciones btn-tiempo ${pausa ? "btn-pausa" : ""}`}
+            onClick={() => setPausa(!pausa)}
+          >
             Tiempo: {minutos}:{segundos < 10 ? "0" + segundos : segundos}
             <br></br>
             {pausa ? "Resumir" : "Pausar"}
@@ -223,7 +239,7 @@ function App() {
 
           {/*Aqui agrego el boton de dificultad el cual es un select con opciones que al cambiar cambia el hook de dificultad. Cuando se cambia llama al hook de setDificultad y lo cambia por el valor elegido*/}
           <select
-            className="btn--dificultad"
+            className="btn--opciones btn-dificultad"
             value={dificultad}
             onChange={(e) => setDificultad(e.target.value)}
           >
@@ -233,11 +249,24 @@ function App() {
           </select>
         </div>
         <div className="botones_abajo">
-          {/*Aqui agrego un event listener de click, que llama a la funcion resolverSudoku y luego usando el hook de setSudokuGrid para cambiar a la plantilla resuelta. Tambien le meto las funciones del tiempo*/}
+          {/*Aqui agrego un event listener de click, que llama a la funcion resolverSudoku y luego usando el hook de setSudokuGrid para cambiar a la plantilla resuelta. Tambien le meto las funciones del tiempo. Tube que hacer una correccion con un switch de dificultad, para que pille el tablero inicial a resolver, si no, si algun numero de los puestos va mal, daria sin solucion*/}
           <button
             className="btn--opciones"
             onClick={() => {
-              const nuevaCuadricula = [...sudokuGrid];
+              let nuevaCuadricula;
+              switch (dificultad) {
+                case "facil":
+                  nuevaCuadricula = [...sudokuFacilInicial];
+                  break;
+                case "medio":
+                  nuevaCuadricula = [...sudokuMedioInicial];
+                  break;
+                case "dificil":
+                  nuevaCuadricula = [...sudokuDificilInicial];
+                  break;
+                default:
+                  nuevaCuadricula = [...sudokuFacilInicial];
+              }
               if (resolverSudoku(nuevaCuadricula)) {
                 // Detiene el temporizador y lo reinicia
                 setTiempoTranscurrido(0);
@@ -258,12 +287,18 @@ function App() {
               setPausa(false);
 
               // Reinicia el tablero de acuerdo con la dificultad seleccionada
-              if (dificultad === "facil") {
-                setSudokuGrid([...sudokuFacilInicial]);
-              } else if (dificultad === "medio") {
-                setSudokuGrid([...sudokuMedioInicial]);
-              } else if (dificultad === "dificil") {
-                setSudokuGrid([...sudokuDificilInicial]);
+              switch (dificultad) {
+                case "facil":
+                  setSudokuGrid([...sudokuFacilInicial]);
+                  break;
+                case "medio":
+                  setSudokuGrid([...sudokuMedioInicial]);
+                  break;
+                case "dificil":
+                  setSudokuGrid([...sudokuDificilInicial]);
+                  break;
+                default:
+                  setSudokuGrid([...sudokuFacilInicial]);
               }
             }}
           >
