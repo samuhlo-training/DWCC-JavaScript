@@ -41,9 +41,9 @@ function App() {
   ];
 
   // Define los tableros iniciales
-  const sudokuFacilInicial = [...sudokuFacil];
-  const sudokuMedioInicial = [...sudokuMedio];
-  const sudokuDificilInicial = [...sudokuDificil];
+  const sudokuFacilInicial = sudokuFacil.map((fila) => [...fila]);
+  const sudokuMedioInicial = sudokuMedio.map((fila) => [...fila]);
+  const sudokuDificilInicial = sudokuDificil.map((fila) => [...fila]);
 
   const [sudokuGrid, setSudokuGrid] = useState(sudokuFacilInicial);
 
@@ -258,11 +258,11 @@ function App() {
               setPausa(false);
 
               // Reinicia el tablero de acuerdo con la dificultad seleccionada
-              if (dificultad === "Fácil") {
+              if (dificultad === "facil") {
                 setSudokuGrid([...sudokuFacilInicial]);
-              } else if (dificultad === "Medio") {
+              } else if (dificultad === "medio") {
                 setSudokuGrid([...sudokuMedioInicial]);
-              } else if (dificultad === "Difícil") {
+              } else if (dificultad === "dificil") {
                 setSudokuGrid([...sudokuDificilInicial]);
               }
             }}
