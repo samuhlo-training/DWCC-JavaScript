@@ -1,4 +1,34 @@
-# Getting Started with Create React App
+# DOCUMENTACION PROYECTO
+
+# SUDOKU REACT
+Link a la pagina con el proyecto desplegado : [SUDOKU](https://samu13.github.io/SudokuReact/)
+
+
+
+A continuación detallo los pasos que segui para la creación de este proyecto :
+## 1. Creación del Proyecto
+Comencé mi proyecto con la creación de una nueva aplicación de React, utilizando create-react-app. Después, instalé y configuré mi entorno de desarrollo.
+## 2. Diseño de la estructura de datos
+Diseñé una estructura de datos para representar las cuadrículas de Sudoku de diferentes dificultades (fácil, medio y difícil). Cada cuadrícula es un array de arrays, donde cada subarray representa una fila en la cuadrícula de Sudoku.
+## 3. Implementación del Tablero de Sudoku
+Implementé un componente de tablero de Sudoku que se renderiza basándose en la estructura de datos que definí en el paso anterior. Usé las características de React para renderizar dinámicamente cada celda en la cuadrícula.
+## 4. Implementación de la Lógica de Sudoku
+Implementé varias funciones para controlar la lógica del juego de Sudoku. Esto incluye funciones para verificar si un movimiento es válido (comprobarMovimiento) y para resolver la cuadrícula de Sudoku (resolverSudoku).
+## 5. Agregado de la Lógica del Tiempo
+Incorporé un temporizador para rastrear cuánto tiempo ha pasado desde que se inició el juego. Usé el Hook useEffect para actualizar el tiempo transcurrido cada segundo y el Hook useState para almacenar la cantidad de tiempo transcurrido.
+## 6. Incorporación de la Funcionalidad de Pausa
+Añadí la capacidad de pausar el temporizador, permitiendo a los jugadores detener el reloj si necesitan tomar un descanso. Utilicé el Hook useState para rastrear si el juego está actualmente en pausa.
+## 7. Selección de Dificultad
+Implementé la selección de dificultad para que los usuarios puedan elegir entre fácil, medio y difícil. Usé el Hook useState para rastrear la dificultad actual y el Hook useEffect para actualizar la cuadrícula de Sudoku cuando la dificultad cambia.https://samu13.github.io/SudokuReact/ aplicación para que pueda revisarlos y tener un registro de todo el proceso de desarrollo.
+
+
+### Lo siguiente será corregir fallos, como una vez escrito un número válido, poder escribir más números, y agregar nuevas funcionalidades, como por ejemplo: la de ayuda, que muestre un número más, la de generar tableros y no tenerlos guardados en arrays, la función del teclado … También me gustaría meter alguna otra forma de ingresar los números e implementar el error.
+-
+
+
+# DOCUMENTACION FIJA DE CREATE REACT APP
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
