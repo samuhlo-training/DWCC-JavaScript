@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercico 2</title>
+</head>
+
+<body>
+
+    <script>
+        //Dado el siguiente fichero en formato JSON, con modelos de coches, escribe una llamada AJAX usando fetch y presenta en consola el modelo y la matricula de los coches recibidos
+        //[ { "marca": "Toyota", "modelo": "Corolla", "matricula": "ABC123", "año": 2020 }, { "marca": "Honda", "modelo": "Civic", "matricula": "DEF456", "año": 2019 }]
+
+        const coches = async function (url) {
+            try {
+                const data = await fetch(url);
+
+                const dataCoches = await data.json()
+
+                if (!data.ok) {
+                    throw new Error('Error al obtener los datos');
+                }
+
+
+                dataCoches.forEach(coche => {
+                    console.log(`Marca : ${coche.marca}`);
+                    console.log(`Modelo : ${coche.modelo}`);
+                    console.log(`Matricula : ${coche.matricula}`);
+                    console.log(`Año : ${coche.año}`);
+                });
+
+                console.log(dataCoches);
+            } catch (e) {
+                console.log(e);
+            }
+            coches(url);
+
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

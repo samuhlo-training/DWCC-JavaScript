@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <script>
+
+        //Crea tres promesas T1, T2 y T3. Utiliza la funcion setTimeout()  para que T1 se resuelva inmediatamente,  T2 a los 3 segundos y  T3 a los 6 segundos.  Presentalas en el orden T1,T3,T2.
+
+        let T1 = Promise.resolve('Promesa 1 resuelta');
+
+
+        let T2 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Promesa 2 resuelta');
+            }, 2000);
+        });
+
+        let T3 = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('Promesa 3 resuelta');
+            }, 6000);
+        });
+
+        T1
+            .then(result => {
+                console.log(result);
+                return T3;
+            })
+            .then(result => {
+                console.log(result);
+                return T2;
+            })
+            .then(result => {
+                console.log(result);
+            });
+    </script>
+
+</body>
+
+</html>

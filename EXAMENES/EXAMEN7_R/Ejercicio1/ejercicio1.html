@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <script>
+        // Pedir por XMLHttpRequest los datos de la API de 'Rick&Morty.txt' y mostrarlos en consola
+
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', 'Rick&Morty.txt', true);
+
+        xhr.onprogress = function () {
+
+            console.log('Cargando...');
+
+        }
+
+        xhr.onload = function () {
+
+            if (this.status === 200) {
+
+                console.log('Respuesta recibida', xhr.responseText);
+
+            } else {
+
+                console.log('Error al recibir la respuesta', xhr.status, xhr.statusText);
+            }
+
+        }
+
+        xhr.send();
+
+
+    </script>
+
+</body>
+
+</html>
